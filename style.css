@@ -1,0 +1,47 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    color: rgb(28, 25, 25);
+}
+
+img{
+    padding-top: 20px;
+    width: 50%;
+    
+}
+.cards{
+    text-align: center;
+    background-color: rgb(140, 136, 136);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 780px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+    }
+    
+    img{
+        padding-top: 20px;
+        width: 50%;
+    }
+    .card{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr ;
+    }
+    
+    img{
+        padding-top: 20px;
+        width: 50%;
+    }
+    .card{
+        text-align: center;
+    }
+}
