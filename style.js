@@ -1,36 +1,37 @@
-fetch('https://fakestoreapi.com/products')
-.then((res => res.json()))
-.then((data)=> {
-  
-    let cont = document.getElementById("container")
+async function Products() {
+    try {
+        
+        const res = await fetch('https://fakestoreapi.com/products');
+        
+        
+        const data = await res.json();
 
+        let cont = document.getElementById("container");
 
-    data.map(dates =>{
+        data.map(product => {
+            let card = document.createElement("div");
+            card.classList.add("cards");
 
+            let imgAPI = document.createElement("img");
+            imgAPI.src = product.image;
+            imgAPI.classList.add("imgs");
 
- let card = document.createElement("div")
-    card.classList.add("cards")
+            let text = document.createElement("h4");
+            text.innerText = product.title;
+            text.classList.add("texts");
 
-    let imgAPI = document.createElement("img")
-       imgAPI.src = dates.image;
-    imgAPI.classList.add("imgs")
+            let prise = document.createElement("div");
+            prise.innerText = product.price;
+            prise.classList.add("prises");
 
-      let text = document.createElement("h4")
-    text.innerText =dates.title
-    text.classList.add("texts")
+            card.appendChild(imgAPI);
+            card.appendChild(text);
+            card.appendChild(prise);
 
-    let prise= document.createElement("prise")
-    prise.innerText = dates.price;
-    prise.classList.add("prises")
-
-
-    card.appendChild(imgAPI);
-    card.appendChild(text);
-    card.appendChild(prise);
-    cont.appendChild(card);
-    
-    })
-});
-
-///////////
-
+            cont.appendChild(card);
+        });
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+fetchProducts();
